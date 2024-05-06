@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <title>Login</title>
+    <link rel="icon" href="assets/img/login__img.png">        
+</head>
+<body>
+    <div class="login">
+        <div class="login__content">
+            <div class="login__img">
+                <img src="assets/img/bg.png" alt="" style="width: 100%;">
+            </div>
+
+            <div class="login__forms">
+                <!--Login form-->
+                <form action="" class="login__registre" id="login-in">
+                    <h1 class="login__title">Sign In</h1>
+                
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="text" placeholder="Username" class="login__input" id="usernameInput">
+                    </div>
+                
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        <div class="password-container">
+                            <input type="password" placeholder="Password" class="login__input" id="passwordInput">
+                            <i class='bx bx-show login__icon toggle-password'></i>
+                        </div>
+                    </div>
+                
+                    <a href="#" class="login__forgot" id="forgot-link">Forgot password?</a>
+                
+                    <a href="recommsystem.html" class="login__button">Sign In</a>
+                
+                    <div>
+                        <span class="login__account">Don't have an Account ?</span>
+                        <span class="login__signin" id="sign-up">Sign Up</span>
+                    </div>
+                </form>
+                <!--Register form-->
+                <form action="" class="login__create none" id="login-up">
+                    <h1 class="login__title">Create Account</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="text" placeholder="Username" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-at login__icon'></i>
+                        <input type="text" placeholder="Email" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        <input type="password" placeholder="Password" class="login__input">
+                    </div>
+
+                    <a href="#" class="login__button">Sign Up</a>
+
+                    <div>
+                        <span class="login__account">Already have an Account ?</span>
+                        <span class="login__signup" id="sign-in">Sign In</span>
+                    </div>
+                </form>
+                <!--Forgot password form-->
+                <form action="" class="forgot_password none" id="forgot-p">
+                    <h1 class="login__title">Forgot Password</h1>
+                
+                    <div class="forgotp__box">
+                        <i class='bx bx-at login__icon'></i>
+                        <input type="email" placeholder="Email" class="login__input" id="emailInput">
+                    </div>
+                
+                    <a href="#" class="login__button" id="reset-password">Reset Password</a>
+                
+                    <div>
+                        <span class="login__account">Remembered your password ?</span>
+                        <span class="login__signin" id="back-to-login">Sign In</span>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!--===== MAIN JS =====-->
+    <script>
+        /*===== LOGIN SHOW and HIDDEN =====*/
+        const signUp = document.getElementById('sign-up'),
+            signIn = document.getElementById('sign-in'),
+            loginIn = document.getElementById('login-in'),
+            loginUp = document.getElementById('login-up'),
+            forgotLink = document.getElementById('forgot-link'),
+            forgotPassword = document.getElementById('forgot-p'),
+            resetPassword = document.getElementById('reset-password'),
+            backToLogin = document.getElementById('back-to-login');
+
+        signUp.addEventListener('click', () => {
+            loginIn.classList.remove('block');
+            loginUp.classList.remove('none');
+            loginIn.classList.toggle('none');
+            loginUp.classList.toggle('block');
+        });
+
+        signIn.addEventListener('click', () => {
+            loginIn.classList.remove('none');
+            loginUp.classList.remove('block');
+            loginIn.classList.toggle('block');
+            loginUp.classList.toggle('none');
+        });
+
+        forgotLink.addEventListener('click', () => {
+            loginIn.classList.remove('block');
+            forgotPassword.classList.remove('none');
+            loginIn.classList.add('none');
+            forgotPassword.classList.add('block');
+        });
+
+        backToLogin.addEventListener('click', () => {
+            loginIn.classList.remove('none');
+            forgotPassword.classList.remove('block');
+            loginIn.classList.add('block');
+            forgotPassword.classList.add('none');
+        });
+
+        resetPassword.addEventListener('click', () => {
+            // Perform password reset logic here
+            alert('Password has been changed!');
+        });
+        
+        //toggle pasword visibility
+        const passwordInput = document.getElementById('passwordInput');
+        const togglePassword = document.querySelector('.toggle-password');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+                this.classList.toggle('bx-show');
+                this.classList.toggle('bx-hide');
+        });
+    </script>
+</body>
+</html>
