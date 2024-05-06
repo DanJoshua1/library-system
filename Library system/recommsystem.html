@@ -7,18 +7,36 @@
     <title>FEU Library</title>
     <link rel="icon" href="assets/img/login__img.png"> 
     <link rel="stylesheet" href="assets/css/lib.css">
+    <style>
+        /* Adjusted CSS styles */
+        .preferences {
+            display: none; /* Initially hide the preferences section */
+        }
+
+        .dashboard {
+            display: flex; /* Adjust layout to flex */
+        }
+
+        .main-content {
+            flex: 1; /* Make the main content fill remaining space */
+            padding: 20px;
+        }
+
+        .filter, .preference-buttons {
+            margin-bottom: 20px; /* Add margin for separation */
+        }
+    </style>
 </head>
 <body>
     <div class="dashboard">
         <div class="sidebar">
-            <h2>Library Dashboard</h2>
-            <ul>
-                <li class="active">Overview</li>
-                <li>Preferences</li>
-            </ul>
+            <img id="ldicon" src="" alt=""><h2>Library Dashboard</h2></img> 
+            <div class="tab-button active" data-tab="overview">Overview</div>
+            <div class="tab-button" data-tab="preferences">Preferences</div>
         </div>
         <div class="main-content">
-            <div class="overview tab-content active">
+            <!-- Overview Section -->
+            <section class="overview tab-content active">
                 <h2>Library Overview</h2>
                 <div class="filter">
                     <label for="publication-date">Filter by Publication Date:</label>
@@ -43,77 +61,74 @@
                         <p>Author: Author Name</p>
                         <p>Published: February 15, 2023</p>
                     </div>
-                    <div class="book-card">
-                        <img src="./assets/img/books/allthesewonders.png" alt="Book 1">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: January 1, 2023</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="./assets/img/books/thebookofmydreams.png" alt="Book 2">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: February 15, 2023</p>
-                    </div>                    <div class="book-card">
-                        <img src="./assets/img/books/allthesewonders.png" alt="Book 1">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: January 1, 2023</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="./assets/img/books/thebookofmydreams.png" alt="Book 2">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: February 15, 2023</p>
-                    </div>                    <div class="book-card">
-                        <img src="./assets/img/books/allthesewonders.png" alt="Book 1">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: January 1, 2023</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="./assets/img/books/thebookofmydreams.png" alt="Book 2">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: February 15, 2023</p>
-                    </div>                    <div class="book-card">
-                        <img src="./assets/img/books/allthesewonders.png" alt="Book 1">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: January 1, 2023</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="./assets/img/books/thebookofmydreams.png" alt="Book 2">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: February 15, 2023</p>
-                    </div>                    <div class="book-card">
-                        <img src="./assets/img/books/allthesewonders.png" alt="Book 1">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: January 1, 2023</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="./assets/img/books/thebookofmydreams.png" alt="Book 2">
-                        <h3>Book Title</h3>
-                        <p>Author: Author Name</p>
-                        <p>Published: February 15, 2023</p>
-                    </div>                  
                     <!-- Add more book cards as needed -->
                 </div>
-            </div>
-            <div class="preferences tab-content">
+            </section>
+            <!-- Preferences Section -->
+            <section class="preferences tab-content" id="preferences">
                 <h2>Student Preferences</h2>
-                <!-- Preferences buttons -->
                 <div class="preference-buttons">
+                    <!-- Add preference buttons here -->
                     <button class="preference-btn">Mathematics</button>
                     <button class="preference-btn">Science</button>
                     <button class="preference-btn">Literature</button>
                     <!-- Add more preference buttons as needed -->
                 </div>
-            </div>
+                 <!-- Sample book cards -->
+                 <div class="books">
+                    <div class="book-card">
+                        <img src="./assets/img/books/allthesewonders.png" alt="Book 1">
+                        <h3>Book Title</h3>
+                        <p>Author: Author Name</p>
+                        <p>Published: January 1, 2023</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="./assets/img/books/thebookofmydreams.png" alt="Book 2">
+                        <h3>Book Title</h3>
+                        <p>Author: Author Name</p>
+                        <p>Published: February 15, 2023</p>
+                    </div>
+                    <!-- Add more book cards as needed -->
+                </div>
+            </section>
         </div>
     </div>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabButtons = document.querySelectorAll(".tab-button");
+            const tabContents = document.querySelectorAll(".tab-content");
+    
+            tabButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const tabId = button.dataset.tab;
+    
+                    // Remove active class from all tab buttons
+                    tabButtons.forEach((btn) => btn.classList.remove("active"));
+    
+                    // Add active class to the clicked tab button
+                    button.classList.add("active");
+    
+                    // Toggle visibility of tab contents
+                    tabContents.forEach((content) => {
+                        if (content.id === tabId) {
+                            content.classList.add("active");
+                        } else {
+                            content.classList.remove("active");
+                        }
+                    });
+    
+                    // Special handling for the preferences tab to show the buttons
+                    if (tabId === "preferences") {
+                        document.querySelector(".preferences").style.display = "block";
+                        document.querySelector(".overview").style.display = "none"; // Hide overview section
+                    } else {
+                        document.querySelector(".preferences").style.display = "none";
+                        document.querySelector(".overview").style.display = "block"; // Show overview section
+                    }
+                });
+            });
+        });
+    </script>
+    
 </body>
 </html>

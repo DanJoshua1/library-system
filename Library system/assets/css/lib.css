@@ -55,13 +55,27 @@ img {
 }
 
 .sidebar {
-  background-color: var(--first-color-lighten);
+  background-color: #004d40; /* FEU Green */
+  color: #fff;
   padding: 20px;
+  height: 100%;
 }
 
 .sidebar h2 {
-  color: var(--first-color-dark);
+  color: #fff;
   margin-bottom: 20px;
+  display:inline-block;
+}
+
+.tab-button {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.tab-button.active {
+  font-weight: bold;
 }
 
 .sidebar ul {
@@ -132,30 +146,36 @@ img {
 
 /* Preferences Styles */
 .preferences {
-    margin-top: 20px; /* Added margin to separate from the other sections */
-  }
-  
-  .preferences h2 {
-    color: var(--first-color-dark);
-  }
-  
-  .preference-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px; /* Adjusted margin */
-  }
-  
-  .preference-btn {
-    padding: 10px 20px;
-    background-color: var(--first-color);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .preference-btn:hover {
-    background-color: var(--first-color-dark);
-  }
-  
+  margin-top: 20px; /* Added margin to separate from the other sections */
+}
+
+.preferences h2 {
+  color: var(--first-color-dark);
+}
+
+.preference-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px; /* Adjusted margin */
+}
+
+.preference-btn {
+  padding: 10px 20px;
+  background-color: var(--first-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.preference-btn:hover {
+  background-color: var(--first-color-dark);
+}
+
+#ldicon{
+  height: 50px;
+  width: auto;
+  position: relative;
+  display:inline-block;
+}
